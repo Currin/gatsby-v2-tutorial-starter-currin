@@ -4,7 +4,11 @@ import styled from 'react-emotion';
 import PropTypes from 'prop-types';
 import { Layout, Container, Content } from 'layouts';
 import { TagsBlock, Header, SEO } from 'components';
+import arrowLeft from '../images/left-chevron.svg';
+import arrowRight from '../images/right-chevron.svg';
+import Img from 'gatsby-image';
 import '../styles/prism';
+
 
 const SuggestionBar = styled.div`
   display: flex;
@@ -17,6 +21,16 @@ const PostSuggestion = styled.div`
   display: flex;
   align-items: center;
   margin: 1rem 3rem 0 3rem;
+`;
+
+const PrevArrow = styled.div`
+  width: 30px;
+  float: left;
+`;
+
+const NextArrow = styled.div`
+  width: 30px;
+  float: right;
 `;
 
 const Post = ({ data, pageContext }) => {
@@ -44,16 +58,20 @@ const Post = ({ data, pageContext }) => {
         <PostSuggestion>
           {prev && (
             <Link to={prev.frontmatter.path}>
-              Previous
-              <h3>{prev.frontmatter.title}</h3>
+              {prev.frontmatter.title} 
+              <PrevArrow>
+              <img src={arrowLeft} alt="Arrow Left" />
+              </PrevArrow>
             </Link>
           )}
         </PostSuggestion>
         <PostSuggestion>
           {next && (
             <Link to={next.frontmatter.path}>
-              Next
-              <h3>{next.frontmatter.title}</h3>
+              {next.frontmatter.title}
+              <NextArrow>
+              <img src={arrowRight} alt="Arrow Right" />
+              </NextArrow>
             </Link>
           )}
         </PostSuggestion>

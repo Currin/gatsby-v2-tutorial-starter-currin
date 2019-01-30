@@ -19,7 +19,15 @@ const Text = styled.div`
   padding-bottom: 2rem;
   text-align: center;
   color: ${props => props.theme.colors.white.light};
+  a {
+    color: ${props => props.theme.colors.white.base};
+    transition: all ${props => props.theme.transitions.default.duration};
+    &:hover {
+      color: ${props => props.theme.colors.white.grey};
+    }
 `;
+
+
 
 const Footer = () => (
   <Wrapper>

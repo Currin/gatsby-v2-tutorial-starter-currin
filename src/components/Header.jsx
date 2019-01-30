@@ -8,7 +8,7 @@ const Wrapper = styled.header`
   clip-path: polygon(100% 0, 0 0, 0 70%, 50% 100%, 100% 70%);
   @media (max-width: ${props => props.theme.breakpoints.s}) {
     -webkit-clip-path: polygon(100% 0, 0 0, 0 90%, 50% 100%, 100% 90%);
-    clip-path: polygon(100% 0, 0 0, 0 90%, 50% 100%, 100% 90%);
+    clip-path: polygon(100% 0, 0 0, 0 80%, 50% 100%, 100% 80%);
   }
   background: ${props => props.theme.gradient.rightToLeft};
   height: 300px;
@@ -16,7 +16,7 @@ const Wrapper = styled.header`
     height: 300px;
   }
   @media (max-width: ${props => props.theme.breakpoints.s}) {
-    height: 275px;
+    height: 330px;
   }
   position: relative;
   overflow: hidden;
@@ -26,7 +26,7 @@ const Text = styled.div`
   color: ${props => props.theme.colors.white.base};
   z-index: 0;
   position: absolute;
-  top: 50%;
+  top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
   display: flex;
@@ -50,7 +50,6 @@ const Header = ({ children, title, date, cover }) => (
     <Text>
       <h1>{title}</h1>
       <h3>{date}</h3>
-
       {children && <Subtitle>{children}</Subtitle>}
     </Text>
   </Wrapper>

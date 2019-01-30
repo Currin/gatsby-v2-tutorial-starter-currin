@@ -1,13 +1,17 @@
 import React from 'react';
 import { Link } from 'gatsby';
+import Img from 'gatsby-image';
 import styled from 'react-emotion';
 import Headroom from 'react-headroom';
-import logo from '../../static/logo/header-logo.png';
+import PropTypes from 'prop-types';
+import logo from '../../static/logo/header-logo.jpg';
+import theme from '../../config/theme';
 
 const StyledLink = styled(Link)`
   display: flex;
   font-weight: 700;
   align-items: center;
+  width: 100px;
 `;
 
 const Nav = styled.nav`
@@ -27,10 +31,24 @@ const Nav = styled.nav`
   }
 `;
 
+// adding in Image Styling for Nav Logo
+
+const Image = styled.div`
+border-radius: ${props => props.theme.borderRadius.default};
+  img {
+    border-radius: ${props => props.theme.borderRadius.default};
+  }
+  width: 70px;
+`;
+
+
+
 const NavBar = () => (
   <Headroom calcHeightOnResize disableInlineStyles>
-    <StyledLink to="/">
-      <img src={logo} alt="Gatsby Logo" />
+    <StyledLink to="/">   
+    <Image>
+      <img src={logo} alt="Gatsby Logo"/>
+</Image>
     </StyledLink>
     <Nav>
       <Link to="/">Home</Link>
@@ -41,3 +59,11 @@ const NavBar = () => (
 );
 
 export default NavBar;
+
+NavBar.propTypes = {
+  cover: PropTypes.object.isRequired,
+  path: PropTypes.string.isRequired,
+  excerpt: PropTypes.string,
+  date: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+};
